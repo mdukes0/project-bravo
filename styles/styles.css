@@ -1,0 +1,51 @@
+/* Droppable berries*/
+
+.berry-grid {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  height: 200px;
+  width: 600px;
+  margin: auto;
+
+}
+
+.straw-grid,
+.black-grid,
+.blue-grid,
+.goose-grid {
+  display: flex;
+  justify-content: center;
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+
+  text-align: center; /* Fix */
+}
+
+/* Baskets to drop in */
+
+.baskets {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  height: 200px;
+  width: 600px;
+  margin: 180px auto;
+}
+
+.straw-basket,
+.black-basket,
+.blue-basket,
+.goose-basket {
+  display: flex;
+  justify-content: center;
+  background-color: beige;
+  color: black;
+  border-radius: 5px;
+  border: 2px dodgerblue solid;
+
+}
