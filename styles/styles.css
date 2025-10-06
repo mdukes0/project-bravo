@@ -4,17 +4,17 @@
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 5px;
-  height: 200px;
-  width: 600px;
+  grid-gap: 10px;
+  height: 100px;
+  width: 360px;
   margin: auto;
 
 }
 
-.straw-grid,
-.black-grid,
-.blue-grid,
-.goose-grid {
+#straw-grid,
+#black-grid,
+#blue-grid,
+#goose-grid {
   display: flex;
   justify-content: center;
   background-color: beige;
@@ -31,16 +31,16 @@
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 5px;
-  height: 200px;
+  grid-gap: 30px;
+  height: 350px;
   width: 600px;
   margin: 180px auto;
 }
 
-.straw-basket,
-.black-basket,
-.blue-basket,
-.goose-basket {
+#straw-basket,
+#black-basket,
+#blue-basket,
+#goose-basket {
   display: flex;
   justify-content: center;
   background-color: beige;

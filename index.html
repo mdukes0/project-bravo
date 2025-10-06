@@ -20,28 +20,58 @@
 
 <body>
 
+	<!-- Navbar content -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#">My Profile Menu</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="pages/blog.html">Blog</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="pages/projects.html">Projects</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="pages/resources.html">Resources</a>
+					</li>
+				</ul>
+				</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
 	<!-- Grid row for Berries -->
-<div class="container"></div> <!-- Might not need this container -->
+	<div class="container"></div> <!-- Might not need this container -->
 	<div class="berry-grid">
-		<div class="straw-grid">Strawberry</div>
-		<div class="black-grid">Blackberry</div>
-		<div class="blue-grid">Blueberry</div>
-		<div class="goose-grid">Gooseberry</div>
+		<div id="straw-grid" class="drag">Strawberry</div>
+		<div id="black-grid" class="drag">Blackberry</div>
+		<div id="blue-grid" class="drag">Blueberry</div>
+		<div id="goose-grid" class="drag">Gooseberry</div>
 	</div>
 
 	<!-- 2x2 Grid for Baskets -->
-	 
+
 	<div class="baskets">
-		<div class="straw-basket">Strawberry (basket)</div>
-		<div class="black-basket">Blackberry (basket)</div>
-		<div class="blue-basket">Blueberry (basket)</div>
-		<div class="goose-basket">Gooseberry (basket)</div>
+		<div id="straw-basket" class="droppable">Strawberry (basket)</div>
+		<div id="black-basket" class="droppable">Blackberry (basket)</div>
+		<div id="blue-basket" class="droppable">Blueberry (basket)</div>
+		<div id="goose-basket" class="droppable">Gooseberry (basket)</div>
 	</div>
 
 	<!-- External javascript library and loads jQuery -->
 
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"
+		integrity="sha256-AlTido85uXPlSyyaZNsjJXeCs07eSv3r43kyCVc8ChI=" crossorigin="anonymous"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
