@@ -1,3 +1,10 @@
+/* Noto Serif */
+@import url('https://fonts.googleapis.com/css2?family=Libertinus+Serif+Display&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  font-family: 'Noto Serif Display', serif;
+}
+
 /* Droppable berries*/
 
 .berry-grid {
@@ -48,4 +55,16 @@
   border-radius: 5px;
   border: 2px dodgerblue solid;
 
+}
+
+/* How to play */
+
+.instructions-header {
+  width: 350px;
+	padding: 25px 20px;
+	margin: 20px auto;
+	border: 10px solid rgb(30, 160, 102);
+	background-color: rgb(14, 135, 111);
+	text-align: center;
+	color: rgb(0, 0, 0);
 }
