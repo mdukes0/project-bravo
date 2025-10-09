@@ -57,6 +57,14 @@
 
 }
 
+.drop {
+  z-index: 100;
+}
+
+.drag {
+  z-index: 100;
+}
+
 /* How to play */
 
 .instructions-header {
