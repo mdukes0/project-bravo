@@ -7,7 +7,6 @@ export function setCookie(name, value, days = 365) {
   const date = new Date();
   date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000); // days → ms
   const expires = "expires=" + date.toUTCString();
-  // No spaces around =, include path=/
   document.cookie = `${name}=${encodeURIComponent(value)}; ${expires}; path=/`;
 }
 

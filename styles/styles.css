@@ -5,11 +5,26 @@
   font-family: 'Noto Serif Display', serif;
 }
 
+/* Custom Properties */
+/* Still need to use */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties */
+:root {
+  --main-bg-color: antiquewhite;
+  --tile-radius: 10px;
+  --border-style: 1px solid dodgerblue;
+}
+
+.home {
+  background: var(--main-bg-color);
+
+}
+
 /* Droppable berries*/
 
 .berry-grid {
   display: grid;
   grid-template-rows: 1fr;
+  border-style: var(--border-style);
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   height: 100px;
@@ -51,22 +66,34 @@
   justify-items: center;
 }
 
-/* Drag for Berries */
-.drag {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: grab;
+/* advanced selector */
+/* https://www.geeksforgeeks.org/css/advanced-selectors-in-css/ */
+.berry-grid > .drag:nth-child(odd) {
+  outline: 3px dotted purple;
 }
 
-.drag img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  user-select: none;
-  pointer-events: none; /* ensures dragging acts on .drag, not the <img> */
+/* Drag for Berries */
+.drag {
+  width: 120px; 
+  height: 120px;
+  display: grid; 
+  place-items: center;
+  border: 2px solid #ccc; 
+  border-radius: var(--tile-radius);
+  background: #222; 
+  color: #fff;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.drag.active {
+  transform: scale(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drag {
+    transition: none;
+    transform: none;
+  }
 }
 
 /* Baskets */
@@ -113,6 +140,12 @@
 
 }
 
+/* Easter Egg Theme */
+
+body.theme {
+  background-color: rgb(165, 227, 224);
+}
+
 /* How to Play */
 
 .instructions-page {
@@ -141,6 +174,10 @@
 
 /* Dev Profile */
 
+.dev-profile {
+  background: rgb(173, 228, 201);
+}
+
 .dev-card {
   width: 350px;
   padding: 25px 20px;
@@ -152,7 +189,7 @@
 }
 
 .skills-tools {
-  text-align: center;
+  text-align: left;
   padding: 10px 10px;
   margin: auto;
   border: 10px dotted rgb(9, 120, 81)

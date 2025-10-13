@@ -18,100 +18,108 @@
 
 </head>
 
-<body>
+<body class ="home">
+	<header>
+		<!-- Navbar content -->
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">My Profile Menu</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-	<!-- Navbar content -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">My Profile Menu</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="pages/howToPlay.html">How to pLay</a>
+						</li>
 
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="pages/howToPlay.html">How to pLay</a>
-					</li>
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href="pages/devProfile.html">Dev profile</a>
+						</li>
 
-					<li class="nav-item">
-						<a class="nav-link" aria-current="page" href="pages/devProfile.html">Dev profile</a>
-					</li>
+						<li class="nav-item">
+							<button id="reset-btn" class="btn btn-outline-light nav-link">Play/Reset</button>
+						</li>
 
-					<li class="nav-item">
-						<button id="reset-btn" class="btn btn-outline-light nav-link">Play/Reset</button>
-					</li>
-
-				</ul>
+					</ul>
+				</div>
 			</div>
-		</div>
-	</nav>
+		</nav>
+	</header>
 
 	<!-- Scoreboard & Playername -->
 
-	<section id="scoreboard" class="score-container">
-		<p class="player">Player: <strong id="name">—</strong></p>
-		<p class="score">Score: <span id="score-count" aria-live="polite">0 / 4</span></p>
-	</section>
+	<main>
+		<section id="scoreboard" class="score-container">
+			<p class="player">Player: <strong id="name">—</strong></p>
+			<p class="score">Score: <span id="score-count" aria-live="polite">0 / 4</span></p>
+		</section>
 
-	<!-- Settings form -->
-	<!-- resources: https://www.w3schools.com/html/html_forms.asp -->
-	<form id="setting-form" class="player-form">
-		<label for="player-name">First name:</label><br>
-		<input type="text" id="player-name" name="player-name" required><br>
-		<label for="last-name">Last name:</label><br>
-		<input type="text" id="last-name" name="last-name">
-		<button type="submit" class="btn btn-primary btn-sm mt-2">Submit</button>
-	</form>
+		<!-- Settings form -->
+		<!-- resources: https://www.w3schools.com/html/html_forms.asp -->
+		<form id="setting-form" class="player-form">
+			<label for="player-name">First name:</label><br>
+			<input 
+				type="text" 
+				id="player-name" 
+				name="player-name" 
+				minlength = "2"
+				title = "Put in at least 2 characters, letters, etc."
+				required /><br>
 
-	
-	<section id="board" class="container my-4">
-  <!-- Grid for Berries -->
-  <div class="berry-grid">
-    <div id="straw-grid" class="drag">
-      <img src="images/strawberry.jpg" alt="Picture of a strawberry">
-    </div>
-    <div id="black-grid" class="drag">
-      <img src="images/blackberry.jpg" alt="Picture of a blackberry">
-    </div>
-    <div id="blue-grid" class="drag">
-      <img src="images/blueberry.jpg" alt="Picture of a blueberry">
-    </div>
-    <div id="goose-grid" class="drag">
-      <img src="images/gooseberry.jpg" alt="Picture of a gooseberry">
-    </div>
-  </div>
+			<label for="last-name">Last name:</label><br>
+			<input 
+				type="text" 
+				id="last-name" 
+				name="last-name"
+				minlength = "2"
+				title = "Put in at least 2 characters, letters, etc."
+				required /><br>
 
-  <!-- Basket Grid -->
-  <div class="baskets">
-    <div id="straw-basket" class="drop">
-      <img src="images/basket.jpg" alt="Brown, woven Basket for strawberries">
-      <p>Strawberry</p>
-    </div>
-    <div id="black-basket" class="drop">
-      <img src="images/basket.jpg" alt="Brown, woven Basket for blackberries">
-      <p>Blackberry</p>
-    </div>
-    <div id="blue-basket" class="drop">
-      <img src="images/basket.jpg" alt="Brown, woven Basket for blueberries">
-      <p>Blueberry</p>
-    </div>
-    <div id="goose-basket" class="drop">
-      <img src="images/basket.jpg" alt="Brown, woven Basket for gooseberries">
-      <p>Gooseberry</p>
-    </div>
-  </div>
-</section>
+			<button type="submit" class="btn btn-primary btn-sm mt-2">Submit</button>
+		</form>
 
-	<!-- <div class="berry-grid">
+
+		<section id="board" class="container my-4">
+			<!-- Grid for Berries -->
+			<div class="berry-grid">
+				<div id="straw-grid" class="drag">Strawberry</div>
+				<div id="black-grid" class="drag">Blackberry</div>
+				<div id="blue-grid" class="drag">Blueberry</div>
+				<div id="goose-grid" class="drag">Gooseberry</div>
+			</div>
+
+			<!-- Grid for Baskets -->
+			<div class="baskets">
+				<div id="straw-basket" class="drop">
+					<img src="images/basket.jpg" alt="Brown, woven Basket for strawberries">
+					<p>Strawberry</p>
+				</div>
+				<div id="black-basket" class="drop">
+					<img src="images/basket.jpg" alt="Brown, woven Basket for blackberries">
+					<p>Blackberry</p>
+				</div>
+				<div id="blue-basket" class="drop">
+					<img src="images/basket.jpg" alt="Brown, woven Basket for blueberries">
+					<p>Blueberry</p>
+				</div>
+				<div id="goose-basket" class="drop">
+					<img src="images/basket.jpg" alt="Brown, woven Basket for gooseberries">
+					<p>Gooseberry</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- <div class="berry-grid">
 		<div id="straw-grid" class="drag">Strawberry</div>
 		<div id="black-grid" class="drag">Blackberry</div>
 		<div id="blue-grid" class="drag">Blueberry</div>
 		<div id="goose-grid" class="drag">Gooseberry</div>
 	</div> -->
 
-	<!-- <div class="container"></div> 
+		<!-- <div class="container"></div> 
 	<div class="berry-grid">
 		<div id="straw-grid" class="drag">Strawberry</div>
 		<div id="black-grid" class="drag">Blackberry</div>
@@ -119,31 +127,36 @@
 		<div id="goose-grid" class="drag">Gooseberry</div>
 	</div> -->
 
-	<!-- 2x2 Grid for Baskets -->
+		<!-- 2x2 Grid for Baskets -->
 
-	<!-- <div class="baskets" id = "baskets">
+		<!-- <div class="baskets" id = "baskets">
 		<div id="straw-basket" class="drop" data-label="Strawberry"></div>
 		<div id="black-basket" class="drop" data-label="Blackberry"></div>
 		<div id="blue-basket" class="drop" data-label="Blueberry"></div>
 		<div id="goose-basket" class="drop" data-label="Gooseberry"></div>
 	</div> -->
 
-	<!-- External javascript library and loads jQuery -->
+		<!-- External javascript library and loads jQuery -->
 
-	<!-- jQuery first -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<!-- jQuery first -->
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-	<!-- jQuery UI (your version is fine if it’s loading; 1.13.3 is a safe bet) -->
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+		<!-- jQuery UI (your version is fine if it’s loading; 1.13.3 is a safe bet) -->
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+		<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
 
-	<!-- Your module LAST -->
-	<script type="module" src="scripts/script.js"></script>
+		<!-- Your module LAST -->
+		<script type="module" src="scripts/script.js"></script>
 
 
-	<!-- Java Script  -->
+		<!-- Java Script  -->
 
-	<script type="module" src="scripts/storage.js"></script>
+		<script type="module" src="scripts/storage.js"></script>
+	</main>
+
+	<footer class="footer">
+
+	</footer>
 
 </body>
 

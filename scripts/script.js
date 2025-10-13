@@ -6,14 +6,6 @@ import {
   loadScore
 } from './storage.js';
 
-// --- DIAGNOSTICS (top of scripts/script.js) ---
-console.log('[script.js] loaded');
-console.log('[script.js] jQuery version:', typeof jQuery !== 'undefined' ? jQuery.fn.jquery : 'MISSING');
-console.log('[script.js] jQuery UI present?', typeof $.fn.draggable === 'function' ? 'yes' : 'NO');
-console.log('[script.js] DOM ready state:', document.readyState);
-// ---------------------------------------------
-
-
 //update score
 let score = 0;
 
@@ -48,9 +40,8 @@ function shuffle(arr) {
   return arr;
 }
 
-// Re=shuffles & Rebuilds
+// Re-shuffles & Rebuilds
 function newRound() {
-  // Build a randomized set of berries, then (re)bind draggable
   const roundItems = shuffle([...items]);
   renderBerries(roundItems);
   $('.drag').draggable();
@@ -63,6 +54,23 @@ $(function () {
     $('#name').text(existingName);
     $('#playerName, #player-name').val(existingName);
   }
+
+  console.log('Current Player: ', loadPlayerName());
+
+  // Stops refresh
+  $('#setting-form').on('submit', function (e) {
+  e.preventDefault();
+
+  // Check if form is valid
+  if (!this.reportValidity()) return; 
+
+  // Save and update playername
+  const name = $('#player-name').val().trim();
+  savePlayerName(name);
+  $('#name').text(name);
+  console.log('Saved name:', name);         // live update on screen
+});
+
 
   // Checks for saved score
   const prevScore = loadScore();
@@ -125,11 +133,10 @@ $(function () {
   });
 
   // Easter egg *work on this
-  console.info('I am unoriginal');
-  window.game = {
-    rickRoll() {
-      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-    }
+  console.info("Type game.theme() for an easter egg");
+  window.game = {};
+  window.game.theme = function() {
+    document.body.classList.toggle("theme");
   };
 });
 
