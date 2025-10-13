@@ -1,36 +1,139 @@
+//Scoreboard
+import {
+  savePlayerName,
+  loadPlayerName,
+  saveScore,
+  loadScore
+} from './storage.js';
 
-$(function () {
+// --- DIAGNOSTICS (top of scripts/script.js) ---
+console.log('[script.js] loaded');
+console.log('[script.js] jQuery version:', typeof jQuery !== 'undefined' ? jQuery.fn.jquery : 'MISSING');
+console.log('[script.js] jQuery UI present?', typeof $.fn.draggable === 'function' ? 'yes' : 'NO');
+console.log('[script.js] DOM ready state:', document.readyState);
+// ---------------------------------------------
+
+
+//update score
+let score = 0;
+
+function updateScore(delta = 1) {
+  score += delta;
+  $('#score-count').text(`${score} / 4`);
+  saveScore(score);
+}
+
+// Basket & Berry Array
+const items = [
+  { id: 'straw-grid', label: 'Strawberry', src: 'images/strawberry.jpg'},
+  { id: 'black-grid', label: 'Blackberry', src: 'images/blackberry.jpg'},
+  { id: 'blue-grid',  label: 'Blueberry',  src: 'images/blueberry.jpg'},
+  { id: 'goose-grid', label: 'Gooseberry', src: 'images/gooseberry.jpg'},
+];
+
+// Reset & REmove items from game board
+function renderBerries(list) {
+  const $grid = $('.berry-grid').empty(); // clear any existing children
+  list.forEach(it => {
+    $grid.append(`<div id="${it.id}" class="drag">${it.label}</div>`);
+  });
+}
+
+// Randomize & Shuffle Berries
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// Re=shuffles & Rebuilds
+function newRound() {
+  // Build a randomized set of berries, then (re)bind draggable
+  const roundItems = shuffle([...items]);
+  renderBerries(roundItems);
   $('.drag').draggable();
+}
 
-  $('.drop').droppable({
+// Player name & score
+$(function () {
+  const existingName = loadPlayerName();
+  if (existingName) {
+    $('#name').text(existingName);
+    $('#playerName, #player-name').val(existingName);
+  }
 
-    drop: function (event, ui) {
-      const basketId = this.id;
-      const berryId = ui.draggable.attr('id');
+  // Checks for saved score
+  const prevScore = loadScore();
+  if (!isNaN(prevScore)) {
+    score = prevScore;
+    $('#score-count').text(`${prevScore} / 4`);
+  } else {
+    $('#score-count').text('0 / 4');
+  }
 
-      if(
-        (berryId === 'straw-grid' && basketId === 'straw-basket') ||
-        (berryId === 'black-grid' && basketId === 'black-basket') ||
-        (berryId === 'blue-grid' && basketId === 'blue-basket') ||
-        (berryId === 'goose-grid' && basketId === 'goose-basket') 
-      ) {
-
-        console.log('Correct berry placement');
-        alert('correct');
-
-
-        $(this).css('background', 'green');
-
-        ui.draggable.appendTo(this).css({
-          position: 'relative', top: 0, left: 0
-        }).draggable('disable');
-      } else {
-        console.log('Incorrect berry placement');
-        alert('Incorrect');
-      }
+  // Settings form
+  $('#settingsForm, #setting-form').on('submit', function (e) {
+    e.preventDefault();
+    const name = ($('#playerName').val() || $('#player-name').val() || '').trim();
+    if (name) {
+      savePlayerName(name);
+      $('#name').text(name);
     }
   });
+
+  // reset/new round
+  newRound();
+
+  // Drop & Drag
+  $('.drop').droppable({
+    accept: function (drag) {
+      const basketId = this.id;
+      const berryId  = $(drag).attr('id');
+      return (
+        (berryId === 'straw-grid' && basketId === 'straw-basket') ||
+        (berryId === 'black-grid' && basketId === 'black-basket') ||
+        (berryId === 'blue-grid'  && basketId === 'blue-basket')  ||
+        (berryId === 'goose-grid' && basketId === 'goose-basket')
+      );
+    },
+
+    // successfull match = green
+    drop: function (_event, ui) {
+      $(this).css('background', 'green');
+
+      ui.draggable
+        .draggable('disable')
+        .fadeOut(150, function()
+        { 
+          $(this).remove(); 
+        });
+        
+      updateScore(1);
+    }
+  });
+
+  // Play/Reset button
+  $('#reset-btn').on('click', function () {
+    score = 0;
+    $('#score-count').text('0 / 4');
+    saveScore(0);
+    $('.drop').css('background', 'beige');
+
+    newRound();
+  });
+
+  // Easter egg *work on this
+  console.info('I am unoriginal');
+  window.game = {
+    rickRoll() {
+      window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+    }
+  };
 });
+
+
 // $(function () {
 //   // Drag and revert back to position
 //   $('.drag').draggable({

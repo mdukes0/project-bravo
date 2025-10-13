@@ -29,19 +29,75 @@
   border-radius: 5px;
   border: 2px dodgerblue solid;
 
-  text-align: center; /* Fix */
+  text-align: center;
 }
 
 /* Baskets to drop in */
 
+/* Index Board*/
+#board {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* berries left, baskets right */
+  gap: 2rem;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Grid for Berries */
+.berry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+/* Drag for Berries */
+.drag {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+
+.drag img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none; /* ensures dragging acts on .drag, not the <img> */
+}
+
+/* Baskets */
 .baskets {
   display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
-  height: 350px;
-  width: 600px;
-  margin: 180px auto;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+.drop {
+  width: 160px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 0.5rem;
+}
+
+.drop img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  user-select: none;
+}
+
+.drop p {
+  margin: 6px 0 0;
+  font-weight: 600;
+  text-align: center;
 }
 
 #straw-basket,
@@ -57,22 +113,60 @@
 
 }
 
-.drop {
-  z-index: 100;
+/* How to Play */
+
+.instructions-page {
+  background: antiquewhite;
 }
 
-.drag {
-  z-index: 100;
+.instructions-card {
+  width: 300px;
+  padding: 20px 15px;
+  margin: 15px auto;
+  border: 10px solid bisque;
+  background-color: cornsilk;
+  text-align: center;
+  color: rgb(0, 0, 0);
 }
 
-/* How to play */
+.instructions {
+  text-align: center;
+  margin: 5px auto;
+  /* iw ould like this to be more centered */
+  list-style-position: inside;
+  padding: 25px 20px;
+  background-color: cornsilk;
+  border: 10px groove bisque;
+}
 
-.instructions-header {
+/* Dev Profile */
+
+.dev-card {
   width: 350px;
-	padding: 25px 20px;
-	margin: 20px auto;
-	border: 10px solid rgb(30, 160, 102);
-	background-color: rgb(14, 135, 111);
-	text-align: center;
-	color: rgb(0, 0, 0);
+  padding: 25px 20px;
+  margin: 20px auto;
+  border: 10px solid rgb(30, 160, 102);
+  background-color: rgb(14, 135, 111);
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.skills-tools {
+  text-align: center;
+  padding: 10px 10px;
+  margin: auto;
+  border: 10px dotted rgb(9, 120, 81)
+}
+
+.links {
+  padding: 10px 10px;
+  margin: auto;
+  border: 10px dotted rgb(9, 120, 81)
+}
+
+
+/* Footer */
+
+.footer {
+  text-align: left;
 }
