@@ -59,10 +59,10 @@ The second block of javascript reads all the cookies, splits and matches them, b
 
 ## Resource Links
 
-- Live Link:
-- GitHub Link:
-- Nu Validator:
-- Wave Link: 
+![Live link](https://mdukes0.github.io/project-bravo/)
+![GitHub Link](https://github.com/mdukes0/project-bravo.git)
+![Nu Validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmdukes0.github.io/project-bravo/)
+![Wave Link](https://wave.webaim.org/report#/https://mdukes0.github.io/project-bravo/)
 
 
 ## Known Omissions
