@@ -6,8 +6,6 @@
 }
 
 /* Custom Properties */
-/* Still need to use */
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties */
 :root {
   --main-bg-color: antiquewhite;
   --tile-radius: 10px;
@@ -47,8 +45,6 @@
   text-align: center;
 }
 
-/* Baskets to drop in */
-
 /* Index Board*/
 #board {
   display: grid;
@@ -67,7 +63,6 @@
 }
 
 /* advanced selector */
-/* https://www.geeksforgeeks.org/css/advanced-selectors-in-css/ */
 .berry-grid > .drag:nth-child(odd) {
   outline: 3px dotted purple;
 }
@@ -96,7 +91,7 @@
   }
 }
 
-/* Baskets */
+/* Baskets & drag/drop */
 .baskets {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -165,7 +160,6 @@ body.theme {
 .instructions {
   text-align: center;
   margin: 5px auto;
-  /* iw ould like this to be more centered */
   list-style-position: inside;
   padding: 25px 20px;
   background-color: cornsilk;
@@ -205,5 +199,11 @@ body.theme {
 /* Footer */
 
 .footer {
-  text-align: left;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer a:hover {
+  color:red;
 }

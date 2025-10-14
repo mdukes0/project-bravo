@@ -1,11 +1,7 @@
-//resources:
-//Set cookie: https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
-//Get cookie: https://stackoverflow.com/questions/10730362/get-cookie-by-name
-
 // Set Cookie
 export function setCookie(name, value, days = 365) {
   const date = new Date();
-  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000); // days → ms
+  date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
   const expires = "expires=" + date.toUTCString();
   document.cookie = `${name}=${encodeURIComponent(value)}; ${expires}; path=/`;
 }

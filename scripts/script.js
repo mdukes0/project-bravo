@@ -17,15 +17,15 @@ function updateScore(delta = 1) {
 
 // Basket & Berry Array
 const items = [
-  { id: 'straw-grid', label: 'Strawberry', src: 'images/strawberry.jpg'},
-  { id: 'black-grid', label: 'Blackberry', src: 'images/blackberry.jpg'},
-  { id: 'blue-grid',  label: 'Blueberry',  src: 'images/blueberry.jpg'},
-  { id: 'goose-grid', label: 'Gooseberry', src: 'images/gooseberry.jpg'},
+  { id: 'straw-grid', label: 'Strawberry'},
+  { id: 'black-grid', label: 'Blackberry'},
+  { id: 'blue-grid',  label: 'Blueberry'},
+  { id: 'goose-grid', label: 'Gooseberry'},
 ];
 
 // Reset & REmove items from game board
 function renderBerries(list) {
-  const $grid = $('.berry-grid').empty(); // clear any existing children
+  const $grid = $('.berry-grid').empty();
   list.forEach(it => {
     $grid.append(`<div id="${it.id}" class="drag">${it.label}</div>`);
   });
@@ -68,7 +68,7 @@ $(function () {
   const name = $('#player-name').val().trim();
   savePlayerName(name);
   $('#name').text(name);
-  console.log('Saved name:', name);         // live update on screen
+  console.log('Saved name:', name);
 });
 
 
@@ -139,79 +139,3 @@ $(function () {
     document.body.classList.toggle("theme");
   };
 });
-
-
-// $(function () {
-//   // Drag and revert back to position
-//   $('.drag').draggable({
-//     revert: function() {
-//       return !$(this).data('correct');
-//     }, // had to fix because other line only reverted
-//     //   return !$(this).data('correct');
-//     // },
-//     // start: function () {
-//     //   $(this).data('correct', false);
-//     start: function () {
-//       $(this).data('correct', false);
-//     }
-//   });
-
-//   // Hardcoded targets for each berry
-//   $('.drop').droppable({
-//     drop: function(event, ui) {
-//       const basketId = $(this).attr('id');
-//       const berryId = ui.draggable.attr('id');
-
-//   // Hardcoded to ensure that conditions react to specifc placements
-//   let placedIn = false;
-//   if(berryId === 'straw-grid' && basketId === 'straw-basket') placedIn = true;
-//   if (berryId === 'black-grid' && basketId === 'black-basket') placedIn = true;
-//   if (berryId === 'blue-grid' && basketId === 'blue-basket') placedIn = true;
-//   if (berryId === 'goose-grid' && basketId === 'goose-basket') placedIn = true;
-
-//   if (placedIn) {
-//     $(this).css('background', 'green');
-//     ui.draggable.data('correct', true);
-//     ui.draggable.draggable('disable');
-//   }
-// }
-  
-//   });
-// });
-
-
-  // $('.drag').draggable();
-
-  // $(".drop").droppable({
-  //   drop: function (event, ui) {
-  //     // const draggedGrid = ui.draggable.attr('id');
-  //     // alert(draggedGrid);
-  //     // console.log($(this).attr("class"));
-
-  //     $('#straw-grid').draggable({
-  //       revert: function () {
-  //         if (!$(this).data('correct')) {
-  //           return true;
-  //         }
-  //       },
-  //       start: function () {
-  //         $(this).data('correct', false);
-  //       }
-  //     });
-
-
-
-  //   }
-  // });
-
-//   if ($("#straw-grid").val() != '') {
-//     $(".draggable").draggable({revert: invalid});
-// }
-// else if($("#seats").val() < 99999) {
-//     alert("Not a valid Number");
-// } else {
-//     setflag = true;
-// }
-
-//https://stackoverflow.com/questions/3088485/how-to-revert-position-of-a-jquery-ui-draggable-based-on-condition
-//https://stackoverflow.com/questions/4520042/if-else-else-if-in-jquery-for-a-condition

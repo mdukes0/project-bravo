@@ -18,7 +18,7 @@
 
 </head>
 
-<body class ="home">
+<body class="home">
 	<header>
 		<!-- Navbar content -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -52,31 +52,22 @@
 	<!-- Scoreboard & Playername -->
 
 	<main>
+		<!-- Omit: <Section headings> Disrupt layout and would affect visuals -->
 		<section id="scoreboard" class="score-container">
 			<p class="player">Player: <strong id="name">—</strong></p>
 			<p class="score">Score: <span id="score-count" aria-live="polite">0 / 4</span></p>
 		</section>
 
 		<!-- Settings form -->
-		<!-- resources: https://www.w3schools.com/html/html_forms.asp -->
+		 <!-- Omit: <Inline error> Couldn't figure it out; used built-in browser pop-ups-->
 		<form id="setting-form" class="player-form">
 			<label for="player-name">First name:</label><br>
-			<input 
-				type="text" 
-				id="player-name" 
-				name="player-name" 
-				minlength = "2"
-				title = "Put in at least 2 characters, letters, etc."
-				required /><br>
+			<input type="text" id="player-name" name="player-name" minlength="2"
+				title="Put in at least 2 characters, letters, etc." required><br>
 
 			<label for="last-name">Last name:</label><br>
-			<input 
-				type="text" 
-				id="last-name" 
-				name="last-name"
-				minlength = "2"
-				title = "Put in at least 2 characters, letters, etc."
-				required /><br>
+			<input type="text" id="last-name" name="last-name" minlength="2"
+				title="Put in at least 2 characters, letters, etc." required><br>
 
 			<button type="submit" class="btn btn-primary btn-sm mt-2">Submit</button>
 		</form>
@@ -112,42 +103,13 @@
 			</div>
 		</section>
 
-		<!-- <div class="berry-grid">
-		<div id="straw-grid" class="drag">Strawberry</div>
-		<div id="black-grid" class="drag">Blackberry</div>
-		<div id="blue-grid" class="drag">Blueberry</div>
-		<div id="goose-grid" class="drag">Gooseberry</div>
-	</div> -->
-
-		<!-- <div class="container"></div> 
-	<div class="berry-grid">
-		<div id="straw-grid" class="drag">Strawberry</div>
-		<div id="black-grid" class="drag">Blackberry</div>
-		<div id="blue-grid" class="drag">Blueberry</div>
-		<div id="goose-grid" class="drag">Gooseberry</div>
-	</div> -->
-
-		<!-- 2x2 Grid for Baskets -->
-
-		<!-- <div class="baskets" id = "baskets">
-		<div id="straw-basket" class="drop" data-label="Strawberry"></div>
-		<div id="black-basket" class="drop" data-label="Blackberry"></div>
-		<div id="blue-basket" class="drop" data-label="Blueberry"></div>
-		<div id="goose-basket" class="drop" data-label="Gooseberry"></div>
-	</div> -->
-
-		<!-- External javascript library and loads jQuery -->
-
-		<!-- jQuery first -->
+		<!-- jQuery-->
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-		<!-- jQuery UI (your version is fine if it’s loading; 1.13.3 is a safe bet) -->
 		<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
 		<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
 
-		<!-- Your module LAST -->
 		<script type="module" src="scripts/script.js"></script>
-
 
 		<!-- Java Script  -->
 
@@ -155,7 +117,10 @@
 	</main>
 
 	<footer class="footer">
-
+		<a href="https://github.com/mdukes0/project-bravo.git" target="_blank">GitHub repo</a>
+		<a href="https://mdukes0.github.io/project-bravo/" target="_blank">Live link</a>
+		<a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fmdukes0.github.io/project-bravo/" target="_blank">Nulink</a>
+		<a href="https://wave.webaim.org/report#/https://mdukes0.github.io/project-bravo/" target="_blank">WAVE link</a>
 	</footer>
 
 </body>
